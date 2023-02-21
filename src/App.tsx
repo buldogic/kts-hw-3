@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
+
+  useEffect(() => {
+    const goods = async () => {
+      const result = await axios({
+        method: 'get',
+        url: 'https://api.escuelajs.co/api/v1/products'
+      });
+    //  eslint-disable-next-line no-console 
+      console.log('result', result);
+    }
+    const products  = async () => {
+      const result = await axios({
+        method: 'get',
+        url: 'https://api.escuelajs.co/api/v1/products/{id}'
+      });
+  //  eslint-disable-next-line no-console 
+      console.log('result', result);
+    }
+    
+    goods();
+    products();
+  }, []);
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route/>
+        <Route/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
