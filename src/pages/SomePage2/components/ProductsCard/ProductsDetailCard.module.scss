@@ -1,0 +1,67 @@
+.card {
+  display: flex;
+
+  justify-content: flex-start;
+}
+.titleText {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  color: #151411;
+  margin-top: 30px;
+}
+
+.subtitleText {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  color: #afadb5;
+  margin-top: 20px;
+}
+
+.priceText {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  color: #151411;
+  margin-top: 130px;
+  margin-bottom: 50px;
+}
+
+.slider {
+  margin-right: 50px;
+}
+
+.buttonBuy {
+  padding: 16px 60px;
+  background: #518581;
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  margin-right: 20px;
+}
+
+.buttonAdd {
+  box-sizing: border-box;
+  padding: 14px 60px;
+  border: 2px solid #f3f3f3;
+  background-color: white;
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  text-align: center;
+  color: #151411;
+}

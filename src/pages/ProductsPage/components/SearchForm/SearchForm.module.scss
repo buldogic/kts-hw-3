@@ -1,0 +1,44 @@
+.searchForm {
+  width: 1020px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(175, 173, 181, 0.2);
+  padding: 15px 28px;
+  box-sizing: border-box;
+}
+
+.searchInput {
+  border: none;
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  color: #afadb5;
+  flex-grow: 2;
+  outline: none;
+}
+
+.searchImg {
+  padding-right: 18px;
+}
+
+.searchButton {
+  padding-left: 18px;
+}
+
+.button {
+  padding: 15px 28px;
+  border: none;
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  text-align: center;
+  color: #ffffff;
+  background: #518581;
+}
