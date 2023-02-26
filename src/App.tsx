@@ -1,40 +1,22 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import Header from "./Header";
+import ProductsPage from "./pages/ProductsPage";
+import SomePage2 from "./pages/SomePage2";
 import "./App.css";
 
 function App() {
-
-  useEffect(() => {
-    const goods = async () => {
-      const result = await axios({
-        method: 'get',
-        url: 'https://api.escuelajs.co/api/v1/products'
-      });
-    //  eslint-disable-next-line no-console 
-      console.log('result', result);
-    }
-    const products  = async () => {
-      const result = await axios({
-        method: 'get',
-        url: 'https://api.escuelajs.co/api/v1/products/{id}'
-      });
-  //  eslint-disable-next-line no-console 
-      console.log('result', result);
-    }
-    
-    goods();
-    products();
-  }, []);
-
-  
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route/>
-        <Route/>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/SomePage1" element={<ProductsPage />} />
+          <Route path="/SomePage2/:id" element={<SomePage2 />} />
+          <Route path="*" element={<Navigate to="/SomePage1" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
