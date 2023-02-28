@@ -27,19 +27,6 @@ const ProductsPage = () => {
     setProducts((products) => [...products, ...data]);
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const products = await getProducts({
-  //       limit: 10,
-  //       offset: 0,
-  //     });
-
-  //     setProducts(products);
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   return (
     <div className={style.productPage}>
       <MainName />

@@ -29,7 +29,7 @@ const ProductsCard = (props: Prod) => {
       <img className={style.img} src={image} alt="" />
       <div className={style.categoryText}>{category}Cupboard</div>
       <div className={style.title}>
-        <Link to={`/SomePage2/${props.id}`} className={style.titleText}>
+        <Link to={`/products/${props.id}`} className={style.titleText}>
           {title}
         </Link>
       </div>
