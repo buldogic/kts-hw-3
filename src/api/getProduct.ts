@@ -1,9 +1,10 @@
-import { Product } from "../types/api";
+import { BASE_URL } from "./config";
+import { Product } from "./types";
 import { api } from "../utils/api";
 
-export const getProduct = async (args: { id: string }) => {
+export const getProduct = async (args: { id: number }) => {
   const data = await api<Product>({
-    url: `https://api.escuelajs.co/api/v1/products/${args.id}`,
+    url: `${BASE_URL}/products/${args.id}`,
   });
 
   return data;
