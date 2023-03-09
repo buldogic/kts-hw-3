@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect } from "react";
 
+import { useSearch } from "@hooks/useSearch";
+import { productsStore } from "@stores/products";
+import { observer } from "mobx-react-lite";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import FilterButton from "./components/FilterButton";
@@ -7,25 +10,15 @@ import MainName from "./components/MainName";
 import ProductsCard from "./components/productsCard";
 import SearchForm from "./components/SearchForm";
 import style from "./Products.module.scss";
-import { getProducts } from "../../api/getProducts";
-import { Product } from "../../types/api";
 
-const LIMIT = 9;
+const ProductsPage = observer(() => {
+  const [search] = useSearch();
 
-const ProductsPage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  useEffect(() => {
+    productsStore.reload();
+  }, [search]);
 
-  const loadMore = async () => {
-    const data = await getProducts({
-      limit: LIMIT,
-      offset: products.length,
-    });
-
-    if (LIMIT !== data.length) setHasMore(false);
-
-    setProducts((products) => [...products, ...data]);
-  };
+  const next = () => productsStore.loadMore(search);
 
   return (
     <div className={style.productPage}>
@@ -38,28 +31,36 @@ const ProductsPage = () => {
       <div>
         <div className={style.cardText}>
           Total Products
-          <span className={style.quantityProducts}>{products.length}</span>
+          <span className={style.quantityProducts}>
+            {productsStore.ids.length}
+          </span>
         </div>
         <InfiniteScroll
-          dataLength={products.length}
-          next={loadMore}
-          hasMore={hasMore}
+          dataLength={productsStore.ids.length}
+          next={next}
+          hasMore={productsStore.hasMore}
           loader={"Loading..."}
           className={style.card}
         >
-          {products.map((prod) => (
-            <ProductsCard
-              key={prod.id}
-              id={prod.id}
-              title={prod.title}
-              image={prod.images[0]}
-              price={prod.price}
-            />
-          ))}
+          {productsStore.ids.map((id) => {
+            const p = productsStore.entities[id];
+
+            if (!p) return null;
+
+            return (
+              <ProductsCard
+                key={id}
+                id={id}
+                title={p.title}
+                image={p.images[0]}
+                price={p.price}
+              />
+            );
+          })}
         </InfiniteScroll>
       </div>
     </div>
   );
-};
+});
 
 export default ProductsPage;

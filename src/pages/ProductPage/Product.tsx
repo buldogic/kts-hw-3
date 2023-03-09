@@ -1,39 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { productsStore } from "@stores/products";
+import { observer } from "mobx-react-lite";
+import { Navigate, useParams } from "react-router-dom";
 
 import ProductsDetailCard from "./components/ProductsCard/ProductsDetailCard";
 import style from "./Product.module.scss";
-import { getProduct } from "../../api/getProduct";
-import { getProducts } from "../../api/getProducts";
-import { Product } from "../../types/api";
 import ProductsCard from "../ProductsPage/components/productsCard/ProductsCard";
 
-const ProductPage = () => {
+const ProductPage = observer(() => {
   const { id } = useParams();
 
-  const [product, setProduct] = useState<Product | null>(null);
-  const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
-
   useEffect(() => {
-    const load = async () => {
-      // TODO show error
-      if (id === undefined) return;
-
-      const productPromise = getProduct({ id });
-      const relatedProductsPromise = getProducts({ limit: 3, offset: 0 });
-
-      const [product, relatedProducts] = await Promise.all([
-        productPromise,
-        relatedProductsPromise,
-      ]);
-
-      setProduct(product);
-      setRelatedProducts(relatedProducts);
-    };
-
-    load();
+    productsStore.loadProduct(Number(id));
+    productsStore.loadRelated(Number(id));
   }, [id]);
+
+  if (id === undefined) return <Navigate to="/products" />;
+
+  const product = productsStore.entities[Number(id)];
+  const relatedProductIds = productsStore.related[Number(id)];
+
+  // TODO loader
+  if (!product) return <>Loading ...</>;
 
   return (
     <div className={style.mainPage}>
@@ -49,18 +38,24 @@ const ProductPage = () => {
       </div>
       <div className={style.relatedItemsText}>Related Items</div>
       <div className={style.relatedProductCard}>
-        {relatedProducts?.map((p) => (
-          <ProductsCard
-            key={p.id}
-            title={p.title}
-            id={p.id}
-            image={p.images[0]}
-            price={p.price}
-          />
-        ))}
+        {relatedProductIds?.map((id) => {
+          const p = productsStore.entities[id];
+
+          if (!p) return null;
+
+          return (
+            <ProductsCard
+              key={id}
+              id={id}
+              title={p.title}
+              image={p.images[0]}
+              price={p.price}
+            />
+          );
+        })}
       </div>
     </div>
   );
-};
+});
 
 export default ProductPage;
