@@ -1,0 +1,40 @@
+.root {
+  position: relative;
+}
+
+.img {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.button {
+  position: absolute;
+  border: none;
+  background-image: url(./icon.svg);
+  background-position: center;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: 13px;
+  height: 64px;
+  width: 64px;
+  top: 268px;
+  border-radius: 50%;
+  opacity: 0.6;
+  background-color: black;
+  cursor: pointer;
+  transition: 0.2s ease-out opacity;
+
+  &.left {
+    left: 24px;
+  }
+
+  &.right {
+    right: 24px;
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

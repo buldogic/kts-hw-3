@@ -1,0 +1,17 @@
+.menuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuHeader_text {
+  margin: 0 30px 0 30px;
+  text-decoration:none;
+  color: black;
+}
+
+.menuHeader_text:active {
+  color: #518581;
+  border-bottom: 3px solid #518581;
+  padding-bottom: 49px;
+}

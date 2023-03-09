@@ -1,0 +1,26 @@
+.mainPage{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.cardDetail{
+  margin: 100px 0 50px 0;  
+}
+.relatedItemsText {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+  color: #151411;
+  margin: 50px 0 30px 0;
+}
+
+.relatedProductCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px 15px;
+  margin-bottom: 50px;
+}
