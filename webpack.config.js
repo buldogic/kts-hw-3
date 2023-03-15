@@ -43,6 +43,7 @@ module.exports = {
   entry: path.join(srcPath, "index.tsx"),
   output: {
     path: buildPath,
+    publicPath: "/",
     filename: "bundle.js",
   },
   module: {
