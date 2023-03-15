@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
 import { useSearch } from "@hooks/useSearch";
-import { productsStore } from "@stores/products";
 import { observer } from "mobx-react-lite";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { productsStore } from "@stores/products";
 
 import FilterButton from "./components/FilterButton";
 import MainName from "./components/MainName";

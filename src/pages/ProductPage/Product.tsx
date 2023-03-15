@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-import { productsStore } from "@stores/products";
 import { observer } from "mobx-react-lite";
 import { Navigate, useParams } from "react-router-dom";
+import { productsStore } from "@stores/products";
 
 import ProductsDetailCard from "./components/ProductsCard/ProductsDetailCard";
 import style from "./Product.module.scss";
