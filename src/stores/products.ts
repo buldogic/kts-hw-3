@@ -29,11 +29,12 @@ class ProductsStore {
     });
   }
 
-  loadMore = async (search: string) => {
+  loadMore = async (search: string, category: string) => {
     const data = await getProducts({
       limit: LIMIT,
       offset: this.ids.length,
       search: search,
+      categoryId: category,
     });
 
     const { ids, entities } = normalizeList(data);
