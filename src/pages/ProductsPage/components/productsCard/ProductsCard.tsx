@@ -27,16 +27,22 @@ const ProductsCard = (props: Prod) => {
     <div className={style.card} onClick={onClick}>
       {" "}
       <img className={style.img} src={image} alt="" />
-      <div className={style.categoryText}>{category}Cupboard</div>
-      <div className={style.title}>
-        <Link to={`/products/${props.id}`} className={style.titleText}>
-          {title}
+      <div className={style.blockText}>
+        <Link className={style.categoryText} to={`/categories`}>
+          {category}
         </Link>
+        <div className={style.title}>
+          <Link to={`/products/${props.id}`} className={style.titleText}>
+            {title}
+          </Link>
+        </div>
+        <div>{subtitle}</div>
+        <div className={style.combinationText}>
+          Combination of wood and wool
+        </div>
+        <div>{content}</div>
+        <div className={style.priceText}>${price}</div>
       </div>
-      <div>{subtitle}</div>
-      <div className={style.combinationText}>Combination of wood and wool</div>
-      <div>{content}</div>
-      <div className={style.priceText}>${price}</div>
     </div>
   );
 };

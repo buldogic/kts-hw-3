@@ -8,10 +8,7 @@
   margin-top: 26px;
   overflow: hidden;
   white-space: nowrap;
-}
-
-.title {
-  margin-top: 14px;
+  gap: 15px;
 }
 
 .titleText {
@@ -30,20 +27,4 @@
   color: #afadb5;
   text-decoration: none;
   margin-top: 6px;
-}
-
-.categoryText {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 130%;
-  color: #afadb5;
-  text-decoration: none;
-}
-
-.priceText {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 130%;
-  color: #151411;
-  margin-top: 18px;
 }

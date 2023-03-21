@@ -6,6 +6,7 @@ export const getProducts = async (args: {
   limit: number;
   offset: number;
   search?: string;
+  categoryId?: string;
 }) => {
   const data = await api<Product[]>({
     url: `${BASE_URL}/products`,
@@ -13,6 +14,7 @@ export const getProducts = async (args: {
       limit: args.limit,
       offset: args.offset,
       title: args.search ?? "",
+      categoryId: args.categoryId ?? "",
     },
   });
 

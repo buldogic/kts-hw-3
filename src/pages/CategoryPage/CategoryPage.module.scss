@@ -1,0 +1,31 @@
+.categoryPage {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.cardCategoryText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  color: #151411;
+  margin: 50px 0 50px 0;
+}
+.quantityProductsCategory {
+  padding: 4.5px 16px;
+  background: #f9f9f9;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  color: #518581;
+}
+.categoriCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px 15px;
+}
