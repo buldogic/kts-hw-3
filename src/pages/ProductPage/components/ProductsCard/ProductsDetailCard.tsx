@@ -32,10 +32,10 @@ const ProductsDetailCard = (props: Prod) => {
         <div className={style.subtitleText}>{subtitle}</div>
         <div>{content}</div>
         <div className={style.priceText}>${price} </div>
-        <div>
+        {/* <div>
           <Button className={style.buttonBuy}>Buy Now</Button>
           <Button className={style.buttonAdd}>Add to Cart</Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
