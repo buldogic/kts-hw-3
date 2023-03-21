@@ -21,7 +21,7 @@
     "dev": "dotenv -- npx webpack serve --mode=development",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
-    "build": "rm -rf dist && NODE_ENV=production webpack --mode=production",
+    "build": "rm -rf dist && NODE_ENV=production webpack --mode=production && cp dist/index.html dist/404.html",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
   },
