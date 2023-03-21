@@ -43,8 +43,8 @@ module.exports = {
   entry: path.join(srcPath, "index.tsx"),
   output: {
     path: buildPath,
-    publicPath: "/",
-    filename: "bundle.js",
+    publicPath: isProd ? "/kts-hw-3" : "/",
+    filename: "[name]-[hash].js",
   },
   module: {
     rules: [
