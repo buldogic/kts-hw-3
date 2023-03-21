@@ -3,10 +3,6 @@ import cn from "classnames";
 import style from "./Button.module.scss";
 
 export type ButtonProps = React.PropsWithChildren<{
-  /**
-   * Если true, то внутри кнопки вместе с children отображается компонент Loader.
-   * Также кнопка должна переходить в состояние disabled
-   */
   loading?: boolean;
 }> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
