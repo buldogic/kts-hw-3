@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 
 import Header from "./Header";
 import ProductPage from "./pages/ProductPage";
@@ -11,7 +11,7 @@ import ScrollToTop from "@components/ScrollToTop";
 const App = () => {
   return (
     <>
-      <BrowserRouter basename="/kts-hw-3">
+      <HashRouter basename="/kts-hw-3">
         <ScrollToTop />
         <Header />
         <Routes>
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/categories" element={<CategoryPage/>}/>
           <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };
